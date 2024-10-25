@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\FoodItem;
+use App\Models\Pizzas;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -23,13 +23,12 @@ class FoodItemController extends Controller
         $sortBy = $request->input('sort_by', 'name');
         $sortOrder = $request->input('sort_order', 'asc');
 
-        $foodItems = FoodItem::when($query, function ($queryBuilder) use ($query) {
+        $foodItems = Pizzas::when($query, function ($queryBuilder) use ($query) {
             return $queryBuilder->where('name', 'LIKE', "%{$query}%")
                 ->orWhere('description', 'LIKE', "%{$query}%");
         })
             ->orderBy($sortBy, $sortOrder)
             ->get();
-
         return view('pizzas.index', compact('foodItems'));
     }
 
@@ -41,8 +40,8 @@ class FoodItemController extends Controller
      */
     public function show(int $id): Factory|View|Application
     {
-        $foodItem  = FoodItem::findOrFail($id);
-        $randomPizza = FoodItem::where('id', '!=', $id)->inRandomOrder()->take(3)->get();
+        $foodItem  = Pizzas::findOrFail($id);
+        $randomPizza = Pizzas::where('id', '!=', $id)->inRandomOrder()->take(3)->get();
         return view('pizzas.show', compact('foodItem', 'randomPizza'));
     }
 }
