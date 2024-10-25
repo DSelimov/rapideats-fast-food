@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\FoodItem;
-use Illuminate\Console\Application;
+use App\Models\Pizzas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -12,7 +11,7 @@ class FoodItemController extends Controller
 {
     public function index()
     {
-        $foodItems = FoodItem::paginate(5);
+        $foodItems = Pizzas::paginate(5);
         return view('admin.food-items.index', compact('foodItems'));
     }
 
@@ -23,9 +22,9 @@ class FoodItemController extends Controller
 
     public function show($id)
     {
-        $foodItem  = FoodItem::findOrFail($id);
+        $foodItem  = Pizzas::findOrFail($id);
 
-        $randomPizza = FoodItem::where('id', '!=', $id)->inRandomOrder()->take(3)->get();
+        $randomPizza = Pizzas::where('id', '!=', $id)->inRandomOrder()->take(3);
 
         return view('admin.food-items.show', compact('foodItem', 'randomPizza'));
     }
@@ -41,7 +40,7 @@ class FoodItemController extends Controller
 
         $imagePath = $request->file('image')->store('images', 'public');
 
-        FoodItem::create([
+        Pizzas::create([
             'name' => $request->name,
             'description' => $request->description,
             'price' => $request->price,
@@ -51,12 +50,12 @@ class FoodItemController extends Controller
         return redirect()->route('admin.food-items.index')->with('success', 'Food item created successfully.');
     }
 
-    public function edit(FoodItem $foodItem)
+    public function edit(Pizzas $foodItem)
     {
         return view('admin.food-items.edit', compact('foodItem'));
     }
 
-    public function update(Request $request, FoodItem $foodItem)
+    public function update(Request $request, Pizzas $foodItem)
     {
         $request->validate([
             'name' => 'required|string|max:255',
@@ -81,7 +80,7 @@ class FoodItemController extends Controller
         return redirect()->route('admin.food-items.index')->with('success', 'Food item updated successfully.');
     }
 
-    public function destroy(FoodItem $foodItem)
+    public function destroy(Pizzas $foodItem)
     {
         if ($foodItem->image) {
             Storage::disk('public')->delete($foodItem->image);

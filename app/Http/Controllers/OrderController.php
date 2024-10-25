@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\FoodItem;
+use App\Models\Pizzas;
 use App\Models\Order;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -35,7 +35,7 @@ class OrderController extends Controller
      */
     public function addToCart($id)
     {
-        $foodItem = FoodItem::find($id);
+        $foodItem = Pizzas::find($id);
 
         if (!$foodItem) {
             return response()->json(['success' => false, 'message' => 'Item not found'], 404);
