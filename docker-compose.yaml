@@ -20,6 +20,7 @@ services:
     networks:
       - web
     image: dinchers/rapid-eats:latest
+    restart: always
 
   db:
     image: mysql:8.0
