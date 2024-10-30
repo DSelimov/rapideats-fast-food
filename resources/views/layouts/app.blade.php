@@ -10,11 +10,11 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <script src="{{ asset('js/cart.js') }}"></script>
-    <script src="{{ asset('js/imgpreview.js') }}"></script>
-
+    <script src="{{ asset('js/preview.js') }}"></script>
 
     <!-- Vite Scripts and Styles -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
 </head>
 <body class="bg-gray-100 h-screen flex flex-col antialiased leading-none font-sans">
 <div id="app" class="flex-grow flex flex-col">
