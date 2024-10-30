@@ -66,9 +66,9 @@ git clone https://github.com/DSelimov/rapideats-fast-food.git
 
 docker-compose up -d --build - Build and run the Docker containers in detached mode
 
-docker ps - Check that the containers are running
+docker-compose ps - Check that the containers are running
 
-cp .env.example .env - make sure that mysql is configured in .env file(db,host,port,password) 
+cp .env.example .env - make sure that mysql is configured in .env file(db,host,port,password). 
 
 docker-compose exec app php artisan migrate
 
