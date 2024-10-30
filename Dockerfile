@@ -34,13 +34,24 @@ RUN php artisan storage:link
 # Install Node.js dependencies
 RUN npm install
 
+# Install Laravel Vite plugin
+RUN npm install vite laravel-vite-plugin
+
 # Build frontend assets
 RUN npm run build
 
 # Create build directory and set permissions
 RUN mkdir -p /var/www/public/build && \
-    chown -R www-data:www-data /var/www && \
+    chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache /var/www/public/build && \
     chmod -R 775 /var/www/storage /var/www/bootstrap/cache /var/www/public/build
+
+RUN php artisan key:generate
+
+
+RUN mv /var/www/public/build/.vite/manifest.json /var/www/public/build
+
+# Set permissions for manifest.json file
+RUN chmod 775 /var/www/public/build/manifest.json
 
 # Expose the port
 EXPOSE 9000
