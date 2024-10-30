@@ -1,0 +1,19 @@
+replicaCount: 2
+
+image:
+  repository: dinchers/rapid-eats
+  tag: latest
+
+env:
+  db_host: mysql
+  db_port: "3306"
+  db_database: rapid-eats
+  db_username: root
+  db_password: root
+  mysql_root_password: root
+
+pvc:
+  laravelStorage: laravel-storage-pvc
+  mysqlStorage: mysql-storage-pvc
+  laravelStorageSize: 1Gi
+  mysqlStorageSize: 2Gi
