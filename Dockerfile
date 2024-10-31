@@ -27,7 +27,8 @@ WORKDIR /var/www
 COPY . .
 
 # Install PHP dependencies with Composer
-RUN composer install --no-dev --optimize-autoloader
+#RUN composer install --no-dev --optimize-autoloader
+RUN composer install
 
 RUN php artisan storage:link
 
@@ -47,7 +48,7 @@ RUN mkdir -p /var/www/public/build && \
 
 RUN php artisan key:generate
 
-
+# Move manifest file
 RUN mv /var/www/public/build/.vite/manifest.json /var/www/public/build
 
 # Set permissions for manifest.json file

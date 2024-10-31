@@ -82,11 +82,11 @@ docker-compose exec app php artisan migrate
 - DB_CONNECTION=mysql
 - DB_HOST=localhost
 - DB_PORT=3306
-- DB_DATABASE= <db_name> <rapid-eats>
-- DB_USERNAME= <db_username>
+- DB_DATABASE= <db_name> - rapid-eats
+- DB_USERNAME= <db_username> - root
 - DB_PASSWORD= <db_password>
 
-## Clear cache:
+## Clear cache
 
 1) php artisan config:clear
 2) php artisan cache:clear
@@ -94,6 +94,13 @@ docker-compose exec app php artisan migrate
 4) php artisan view:clear
 
 
+## Fixing issues
 
+### Possible issues you may face
+
+- install dependencies: run - composer install inside the container /var/www/
+- build issues: run - npm run build
+- vite plugin issues: run - npm install vite laravel-vite-plugin then again run - npm run build
+- manifest.json issue: run  - mv /var/www/public/build/.vite/manifest.json /var/www/public/build
 
 
