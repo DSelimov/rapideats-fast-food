@@ -113,23 +113,6 @@ docker-compsoe exec app php artisan db:seed
 
 # Kubernetes Setup Guide (Optional)
 
-- There are two configurations: 1) usual k8s config files and 2) helm charts
-- The usual config files are located in folder k8s and nginx.conf located in the root dir of the project
-- Helm charts are located in folder helm and helm/templates 
-
-- Recommended to use first the normal k8s config files then you can use helm charts 
-
-- To apply the config files in k8s folder run: 
-1)  
-2) 
-
-- To apply helm charts run:
-1) 
-2) 
-
-
-# Kubernetes Setup Guide (Optional)
-
 This guide provides instructions for setting up Kubernetes using both traditional configuration files and Helm charts.
 
 ## Configuration Options
