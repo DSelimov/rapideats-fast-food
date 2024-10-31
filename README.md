@@ -82,7 +82,7 @@ docker-compose exec app php artisan migrate
 - DB_CONNECTION=mysql
 - DB_HOST=localhost
 - DB_PORT=3306
-- DB_DATABASE= <db_name>/<rapid-eats>
+- DB_DATABASE= <db_name> <rapid-eats>
 - DB_USERNAME= <db_username>
 - DB_PASSWORD= <db_password>
 
