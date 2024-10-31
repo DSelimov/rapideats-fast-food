@@ -60,6 +60,7 @@ To get started with the Pizza Ordering Web App, clone the repository to your loc
 - Using Docker Compose
 - Build and run the Docker containers in detached mode:
 - Recommended to use WSL - Ubuntu ^20.04.6 
+- When logged in as ADMIN User you can perform CRUD on url = http://localhost:8080/admin/food-items
 
 ```bash
 git clone https://github.com/DSelimov/rapideats-fast-food.git
@@ -76,11 +77,17 @@ cp .env.example .env
 # Run migrations
 docker-compose exec app php artisan migrate
 
+# Add default data
+# This will add users and pizzas:
+- Admin User with: email = admin@example.com and password = Admin_Pa$$word;
+- Regular User with: email = user@example.com and password = User_Pa$$word;
+docker-compsoe exec app php artisan db:seed
+
 ```
 
 ## .ENV example
 - DB_CONNECTION=mysql
-- DB_HOST=localhost
+- DB_HOST=localhost or 127.0.0.1
 - DB_PORT=3306
 - DB_DATABASE= <db_name> - rapid-eats
 - DB_USERNAME= <db_username> - root
