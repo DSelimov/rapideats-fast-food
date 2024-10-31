@@ -111,3 +111,61 @@ docker-compsoe exec app php artisan db:seed
 - manifest.json issue: run  - mv /var/www/public/build/.vite/manifest.json /var/www/public/build
 
 
+# Kubernetes Setup Guide (Optional)
+
+- There are two configurations: 1) usual k8s config files and 2) helm charts
+- The usual config files are located in folder k8s and nginx.conf located in the root dir of the project
+- Helm charts are located in folder helm and helm/templates 
+
+- Recommended to use first the normal k8s config files then you can use helm charts 
+
+- To apply the config files in k8s folder run: 
+1)  
+2) 
+
+- To apply helm charts run:
+1) 
+2) 
+
+
+# Kubernetes Setup Guide (Optional)
+
+This guide provides instructions for setting up Kubernetes using both traditional configuration files and Helm charts.
+
+## Configuration Options
+
+### 1. Kubernetes Configuration Files
+
+- **Location**: The standard Kubernetes configuration files are located in the `k8s` directory. The `nginx.conf` file is located in the root directory of the project.
+
+### 2. Helm Charts
+
+- **Location**: Helm charts can be found in the `helm` directory, with templates stored in `helm/templates`.
+
+## Recommended Approach
+
+It is recommended to first apply the traditional Kubernetes configuration files before utilizing Helm charts for a smoother setup experience.
+
+## Applying Kubernetes Configuration Files
+
+To apply the configuration files located in the `k8s` folder, follow these steps:
+
+1. Navigate to the directory containing the configuration files:
+   ```bash
+   cd path/to/your/project/k8s
+   
+   kubectl apply -f .
+
+## Applying Helm Charts
+
+To apply the Helm charts, execute the following steps:
+
+1. Navigate to the Helm directory:
+
+   ```bash
+   cd path/to/your/project/helm
+       
+   helm install <release-name> ./<chart-directory>
+
+Replace <release-name> with your desired name for the Helm release <br> 
+and <chart-directory> with the specific chart you want to install.
