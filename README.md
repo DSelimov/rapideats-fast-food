@@ -64,17 +64,29 @@ To get started with the Pizza Ordering Web App, clone the repository to your loc
 ```bash
 git clone https://github.com/DSelimov/rapideats-fast-food.git
 
-docker-compose up -d --build - Build and run the Docker containers in detached mode
+# Build and run the Docker containers in detached mode
+docker-compose up -d --build
 
-docker-compose ps - Check that the containers are running
+#Check that the containers are running
+docker-compose ps
 
-cp .env.example .env - make sure that mysql is configured in .env file(db,host,port,password). 
+#make sure that mysql is configured in .env file(db,host,port,password)
+cp .env.example .env 
 
+# Run migrations
 docker-compose exec app php artisan migrate
 
 ```
 
-# Clear cache:
+## .ENV example
+- DB_CONNECTION=mysql
+- DB_HOST=localhost
+- DB_PORT=3306
+- DB_DATABASE= <db_name>/<rapid-eats>
+- DB_USERNAME= <db_username>
+- DB_PASSWORD= <db_password>
+
+## Clear cache:
 
 1) php artisan config:clear
 2) php artisan cache:clear
