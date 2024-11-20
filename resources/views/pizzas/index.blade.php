@@ -1,6 +1,94 @@
 @extends('layouts.app')
 
 @section('content')
+
+    <div class="carousel-container">
+        <!-- First Image -->
+        <div class="carousel-item active">
+            <img src="https://png.pngtree.com/thumb_back/fw800/background/20231007/pngtree-pizza-preparations-exploring-the-art-of-cooking-on-a-dark-textured-image_13606857.png" alt="Pizza Preparation">
+        </div>
+
+        <!-- Second Image -->
+        <div class="carousel-item">
+            <img src="https://static.vecteezy.com/system/resources/previews/026/973/539/non_2x/woman-is-cooking-italian-pizza-free-photo.jpg" alt="Cooking Pizza">
+        </div>
+
+        <!-- Third Image -->
+        <div class="carousel-item">
+            <img src="https://c8.alamy.com/comp/2C1A20G/banner-raw-uncooked-ingredients-for-cooking-pasta-cooking-background-food-banner-2C1A20G.jpg" alt="Pizza Image">
+        </div>
+
+        <!-- Carousel Controls (Left and Right Arrows) -->
+        <button class="prev" onclick="moveCarousel(-1)">&#8249;</button>
+        <button class="next" onclick="moveCarousel(1)">&#8250;</button>
+    </div>
+    <style>
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: 650px; /* Set a fixed height for the carousel */
+            overflow: hidden;
+        }
+
+        .carousel-item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.7s ease-in-out;
+        }
+
+        .carousel-item.active {
+            opacity: 1;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Arrow buttons */
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .prev {
+            left: 20px;
+        }
+
+        .next {
+            right: 20px;
+        }
+    </style>
+
+    <script>
+        let currentIndex = 0;
+        const items = document.querySelectorAll('.carousel-item');
+
+        // Function to move the carousel
+        function moveCarousel(direction) {
+            items[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + direction + items.length) % items.length;
+            items[currentIndex].classList.add('active');
+        }
+
+        setInterval(() => {
+            moveCarousel(1);
+        }, 3000);
+    </script>
+
     <div class="container mx-auto px-4 py-12">
         <h2 class="text-center text-4xl font-bold mb-20">Explore Our Delicious Menu!</h2>
 
