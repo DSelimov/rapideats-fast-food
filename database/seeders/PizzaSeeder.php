@@ -9,44 +9,46 @@ class PizzaSeeder extends Seeder
 {
     public function run()
     {
+        $descriptions = json_decode(file_get_contents(storage_path('pizza_description_storage/pizza_description_storage.json')), true);
+
         Pizzas::create([
             'name' => 'Margherita',
-            'description' => 'Classic cheese and tomato Pizzas',
+            'description' => 'Ingredients: ' . implode(', ', $descriptions['Margherita']['ingredients']) . "\n" . $descriptions['Margherita']['description'],
             'price' => 8.99,
             'image' => 'images/FsZq235ep5qWFffTBbtgSzUPoDEGRDVZNkWryJSc.jpg',
         ]);
 
         Pizzas::create([
             'name' => 'Pepperoni',
-            'description' => 'Topped with pepperoni slices',
+            'description' => 'Ingredients: ' . implode(', ', $descriptions['Pepperoni']['ingredients']) . "\n" . $descriptions['Pepperoni']['description'],
             'price' => 9.99,
             'image' => 'images/FsZq235ep5qWFffTBbtgSzUPoDEGRDVZNkWryJSc.jpg',
         ]);
 
         Pizzas::create([
             'name' => 'BBQ Chicken',
-            'description' => 'Grilled chicken with BBQ sauce, onions, and cilantro',
+            'description' => 'Ingredients: ' . implode(', ', $descriptions['BBQ Chicken']['ingredients']) . "\n" . $descriptions['BBQ Chicken']['description'],
             'price' => 10.99,
             'image' => 'images/FsZq235ep5qWFffTBbtgSzUPoDEGRDVZNkWryJSc.jpg',
         ]);
 
         Pizzas::create([
             'name' => 'Vegetarian',
-            'description' => 'Bell peppers, onions, mushrooms, and olives',
+            'description' => 'Ingredients: ' . implode(', ', $descriptions['Vegetarian']['ingredients']) . "\n" . $descriptions['Vegetarian']['description'],
             'price' => 9.49,
             'image' => 'images/FsZq235ep5qWFffTBbtgSzUPoDEGRDVZNkWryJSc.jpg',
         ]);
 
         Pizzas::create([
             'name' => 'Hawaiian',
-            'description' => 'Ham and pineapple with mozzarella cheese',
+            'description' => 'Ingredients: ' . implode(', ', $descriptions['Hawaiian']['ingredients']) . "\n" . $descriptions['Hawaiian']['description'],
             'price' => 10.49,
             'image' => 'images/FsZq235ep5qWFffTBbtgSzUPoDEGRDVZNkWryJSc.jpg',
         ]);
 
         Pizzas::create([
             'name' => 'Four Cheese',
-            'description' => 'A blend of mozzarella, cheddar, parmesan, and gorgonzola',
+            'description' => 'Ingredients: ' . implode(', ', $descriptions['Four Cheese']['ingredients']) . "\n" . $descriptions['Four Cheese']['description'],
             'price' => 11.99,
             'image' => 'images/FsZq235ep5qWFffTBbtgSzUPoDEGRDVZNkWryJSc.jpg',
         ]);

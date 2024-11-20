@@ -1,0 +1,26 @@
+{
+    "Margherita": {
+        "ingredients": ["Mozzarella", "Fresh basil", "Olive oil", "Tomato sauce"],
+        "description": "A timeless classic with a rich tomato base, topped with creamy mozzarella, fresh basil leaves, and a drizzle of olive oil for that perfect balance of flavor."
+    },
+    "Pepperoni": {
+        "ingredients": ["Pepperoni", "Mozzarella", "Tomato sauce"],
+        "description": "A savory delight loaded with crispy pepperoni slices on a golden crust, topped with melted mozzarella and a zesty tomato sauce that packs a punch."
+    },
+    "BBQ Chicken": {
+        "ingredients": ["Grilled chicken", "BBQ sauce", "Caramelized onions", "Cilantro", "Mozzarella"],
+        "description": "Grilled chicken smothered in smoky BBQ sauce, paired with caramelized onions, fresh cilantro, and a touch of cheese. A perfect blend of savory and sweet."
+    },
+    "Vegetarian": {
+        "ingredients": ["Bell peppers", "Red onions", "Mushrooms", "Black olives", "Mozzarella"],
+        "description": "A vibrant and fresh mix of bell peppers, red onions, mushrooms, and black olives, all atop a perfectly baked crust with a sprinkle of mozzarella and a touch of olive oil."
+    },
+    "Hawaiian": {
+        "ingredients": ["Ham", "Pineapple", "Mozzarella", "Tomato sauce"],
+        "description": "A tropical twist with savory ham, sweet pineapple chunks, and gooey mozzarella cheese, all sitting on a crisp crust and complemented by a tangy tomato sauce."
+    },
+    "Four Cheese": {
+        "ingredients": ["Mozzarella", "Cheddar", "Parmesan", "Gorgonzola"],
+        "description": "A cheesy indulgence with a rich blend of mozzarella, sharp cheddar, tangy parmesan, and creamy gorgonzola. Perfect for those who can’t resist a good cheese pull."
+    }
+}
